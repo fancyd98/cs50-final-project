@@ -90,3 +90,7 @@ body {
   .form-group {
     margin: 0px 0px 15px 0px;
   }
+
+  article.media.content-section {
+    display: flex;
+  }
