@@ -94,3 +94,12 @@ body {
   article.media.content-section {
     display: flex;
   }
+
+  a.btn.btn-info.mb-4 {
+    color: #fff;
+  }
+
+  .btn-outline-info:hover {
+    color: #fff;
+    border-color: #0dcaf0;
+  }
