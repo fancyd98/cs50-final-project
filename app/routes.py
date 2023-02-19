@@ -6,7 +6,7 @@ from app import app, db, bcrypt, mail
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPassowrdForm
 from app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
-from flask_mail import Message
+from flask_mailman import EmailMessage
 
 
 @app.route("/")
@@ -155,15 +155,16 @@ def user_posts(username):
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', 
-                  sender='noreply@demo.com', 
-                  recipients=[user.email])
-    msg.body = f'''To reset your password, visit the following link:
+    msg = EmailMessage(
+    'Password Reset Request',
+    f'''To reset your password, visit the following link:
 {url_for('reset_token', token=token, _external=True)}
 
 If you did not make this request, then simply ignore this email and no changes will be made.
-'''
-    mail.send(msg)
+''',
+    [user.email],
+    )
+    msg.send()
 
 
 @app.route("/reset_password", methods = ['GET', 'POST'])
