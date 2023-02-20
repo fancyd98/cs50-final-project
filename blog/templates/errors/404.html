@@ -12,6 +12,9 @@
         <link type="text/css" href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
         <link type="text/css" href="{{ url_for('static', filename='404.css') }}" rel="stylesheet">
 
+        <!-- Favicon -->
+        <link href="{{ url_for('static', filename='favicon.png') }}" rel="icon">
+        
         {% if title %}
         <title>Blog - {{ title }}</title>
         {% else %}
