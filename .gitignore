@@ -1,4 +1,4 @@
 # .gitignore
 __pycache__/
-blog/.env
+blog/vars/
 venv/
